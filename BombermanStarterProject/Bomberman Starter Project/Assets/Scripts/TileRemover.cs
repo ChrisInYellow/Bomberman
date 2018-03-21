@@ -9,6 +9,7 @@ public class TileRemover : MonoBehaviour
     public Tilemap tilemap;
     public Tile wallTile;
     public Tile destructibleTile;
+    public GameObject player;  
     public GameObject explosionPrefab;
 
 

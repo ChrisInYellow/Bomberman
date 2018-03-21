@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
 
     public float acceleration;
-
+    public Tilemap tilemap; 
     private Rigidbody2D rigidbody;
 
     // Use this for initialization
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+    
         Movement(); 
     }
 
@@ -39,4 +41,17 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(x, y) * acceleration;
         rigidbody.velocity = movement;
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.name == "Explosion")
+        {
+            Invoke("Death", 2.80f); 
+        }
+    }
+    public void Death()
+    {
+        Destroy(gameObject); 
+    }
+
 }
