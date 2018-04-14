@@ -53,8 +53,6 @@ Shader "Unlit/NewUnlitShader"
 			float4 frag(v2f i) : SV_Target
 			{
 				float4 color = lerp(tex2D(_MainTex, i.uv), tex2D(_SecondTex,i.uv), _Tween) *_Color;
-				/*float4 color2 = tex2D(_SecondTex, i.uv) * _Color; 
-				float4 output = lerp(_MainTex, _SecondTex, _Tween);*/
 
 				return color; 
 			}
