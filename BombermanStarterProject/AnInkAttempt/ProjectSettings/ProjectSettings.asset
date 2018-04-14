@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 5a1ea9caeeee07a40b9f8b65710830d0
+  productGUID: 59500a3f68e221c4983a102a0c5a25bf
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: ShaderTesting
+  productName: AnInkAttempt
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -558,14 +558,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: ShaderTesting
+  metroPackageName: AnInkAttempt
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: ShaderTesting
+  metroApplicationDescription: AnInkAttempt
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -630,16 +630,20 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
+<<<<<<< HEAD:BombermanStarterProject/ShaderTesting/ProjectSettings/ProjectSettings.asset
   cloudServicesEnabled:
     Build: 0
     Collab: 0
     ErrorHub: 0
     Hub: 0
     UNet: 1
+=======
+  cloudServicesEnabled: {}
+>>>>>>> 96fbc28db8db7972848d968cee6cac1aec141717:BombermanStarterProject/AnInkAttempt/ProjectSettings/ProjectSettings.asset
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 3c366250-037f-48d4-88b4-15c78977ddd1
-  projectName: ShaderTesting
+  cloudProjectId: 15ac3505-1aa1-40ee-b033-23e2f8340ffd
+  projectName: AnInkAttempt
   organizationId: chris-albin
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
