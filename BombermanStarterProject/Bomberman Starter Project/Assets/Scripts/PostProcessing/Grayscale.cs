@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class ScreenEffect : MonoBehaviour {
+public class Grayscale : MonoBehaviour
+{
 
     public Material material;
-    public Material material2;
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
