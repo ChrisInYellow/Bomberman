@@ -172,9 +172,9 @@ MonoBehaviour:
   tilemap: {fileID: 1233221667}
   wallTile: {fileID: 11400000, guid: dd221daf9de1c624b82c1f90bda93bae, type: 2}
   destructibleTile: {fileID: 11400000, guid: f5cead61b9ade294eaef2b42ad349148, type: 2}
-  player: {fileID: 0}
   explosionPrefab: {fileID: 1256738071538998, guid: b699c7ee58d006f48a53ae3d618456c4,
     type: 2}
+  player: {fileID: 359361556}
 --- !u!1 &359361551
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +313,8 @@ MonoBehaviour:
   tilemap: {fileID: 1233221667}
   overlayMap: {fileID: 1186751812}
   overlayTile: {fileID: 11400000, guid: f9cce05d896a20349a17076dcfd63c75, type: 2}
+  explosionPrefab: {fileID: 1256738071538998, guid: b699c7ee58d006f48a53ae3d618456c4,
+    type: 2}
 --- !u!1 &757039277
 GameObject:
   m_ObjectHideFlags: 0

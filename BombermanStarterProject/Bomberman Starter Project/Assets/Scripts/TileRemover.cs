@@ -9,8 +9,9 @@ public class TileRemover : MonoBehaviour
     public Tilemap tilemap;
     public Tile wallTile;
     public Tile destructibleTile;
-    public GameObject player;  
     public GameObject explosionPrefab;
+    public PlayerController player;
+    public Vector3 pos; 
 
 
 
@@ -42,6 +43,8 @@ public class TileRemover : MonoBehaviour
     private bool BlastRadius(Vector3Int cell)
     {
         Tile tile = tilemap.GetTile<Tile>(cell);
+        Vector3 playerPos = player.transform.position;
+        Vector3Int playerCell = tilemap.WorldToCell(playerPos); 
 
         if (tile == wallTile)
         {
@@ -53,9 +56,14 @@ public class TileRemover : MonoBehaviour
             tilemap.SetTile(cell, null);
         }
 
-        Vector3 pos = tilemap.GetCellCenterWorld(cell);
+        if(tile == tilemap.GetTile<Tile>(playerCell))
+        {
+            player.ExplodePlayer();
+        }
+        pos = tilemap.GetCellCenterWorld(cell);
         Instantiate(explosionPrefab, pos, Quaternion.identity);
-
+        Debug.Log(pos); 
+        
         return true;
     }
 }

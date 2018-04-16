@@ -8,14 +8,6 @@ public class BombSpawner : MonoBehaviour {
     public GameObject player;
 
     public GameObject bomb; 
-	
-	void Update () {
-        if (Input.GetButtonDown("Jump"))
-        {
-            SpawnBomb();
-        }
-            
-	}
 
     public void SpawnBomb()
     {
