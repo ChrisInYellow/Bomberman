@@ -7,14 +7,19 @@ public class PlayerController : MonoBehaviour
 {
     public int x;
     public int y;
-    public float acceleration;
+    public int numberOfSteps;
+
     public Tilemap tilemap;
     public Tilemap overlayMap;
     public TileBase overlayTile;
     private Rigidbody2D rigidbody;
     public GameObject explosionPrefab;
-    private BombSpawner bombspawner;
-    private TileRemover tileRemover; 
+    public BombSpawner bombspawner;
+    public TileRemover tileRemover;
+
+
+    public bool BombDropped;
+
 
     // Use this for initialization
     void Start()
@@ -24,16 +29,14 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(x, y, 0);
         Overlay(new Vector3Int(x, y, 0));
         rigidbody = GetComponent<Rigidbody2D>();
-        bombspawner = FindObjectOfType<BombSpawner>();
-        tileRemover = FindObjectOfType<TileRemover>();
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         Movement();
 
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             bombspawner.SpawnBomb();
         }
@@ -49,29 +52,79 @@ public class PlayerController : MonoBehaviour
 
             if (overlayMap.GetTile(intPos) != null)
             {
-                x = intPos.x;
-                y = intPos.y;
-                transform.position = tilemap.CellToWorld(new Vector3Int(x, y, 0));
-                Overlay(intPos);
-
+                Debug.Log(tilemap.GetTile(intPos));
+                if (tilemap.GetTile(intPos) != tileRemover.wallTile && tilemap.GetTile(intPos) != tileRemover.destructibleTile)
+                {
+                    x = intPos.x;
+                    y = intPos.y;
+                    transform.position = tilemap.CellToWorld(new Vector3Int(x, y, 0));
+                    Overlay(intPos);
+                }
             }
-
         }
     }
     private void Overlay(Vector3Int PlayerPos)
     {
         overlayMap.ClearAllTiles();
         overlayMap.SetTile(PlayerPos, overlayTile);
-        overlayMap.SetTile(PlayerPos + Vector3Int.up *2, overlayTile);
-        overlayMap.SetTile(PlayerPos + Vector3Int.down * 2, overlayTile);
-        overlayMap.SetTile(PlayerPos + Vector3Int.left * 2, overlayTile);
-        overlayMap.SetTile(PlayerPos + Vector3Int.right *2, overlayTile);
-    }
 
+        for (int i = 1; i < numberOfSteps; i++)
+        {
+            if (tilemap.GetTile(PlayerPos + Vector3Int.up * i) != tileRemover.wallTile &&
+                tilemap.GetTile(PlayerPos + Vector3Int.up * i) != tileRemover.destructibleTile)
+            {
+                overlayMap.SetTile(PlayerPos + Vector3Int.up * i, overlayTile);
+            }
+            else
+            {
+                i = numberOfSteps; 
+            }
+        }
+
+        for (int j = 1; j < numberOfSteps; j++)
+        {
+            if (tilemap.GetTile(PlayerPos + Vector3Int.down * j) != tileRemover.wallTile &&
+                tilemap.GetTile(PlayerPos + Vector3Int.down * j) != tileRemover.destructibleTile)
+            {
+                overlayMap.SetTile(PlayerPos + Vector3Int.down * j, overlayTile);
+            }
+            else
+            {
+                j = numberOfSteps;
+            }
+        }
+
+        for (int k = 1; k < numberOfSteps; k++)
+        {
+            if (tilemap.GetTile(PlayerPos + Vector3Int.left * k) != tileRemover.wallTile &&
+                tilemap.GetTile(PlayerPos + Vector3Int.left * k) != tileRemover.destructibleTile)
+            {
+                overlayMap.SetTile(PlayerPos + Vector3Int.left * k, overlayTile);
+            }
+            else
+            {
+                k = numberOfSteps;
+            }
+        }
+
+        for (int l = 1; l < numberOfSteps; l++)
+        {
+            if (tilemap.GetTile(PlayerPos + Vector3Int.right * l) != tileRemover.wallTile &&
+                tilemap.GetTile(PlayerPos + Vector3Int.right * l) != tileRemover.destructibleTile)
+            {
+                overlayMap.SetTile(PlayerPos + Vector3Int.right * l, overlayTile);
+            }
+            else
+            {
+                l = numberOfSteps; 
+            }
+        }
+    }
     public void ExplodePlayer()
-    { 
+        {
             overlayMap.ClearAllTiles();
-            Destroy(gameObject); 
+            Destroy(gameObject);
+        }
+
     }
 
-}
