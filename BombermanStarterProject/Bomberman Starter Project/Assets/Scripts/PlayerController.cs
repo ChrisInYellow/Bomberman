@@ -9,10 +9,14 @@ public class PlayerController : MonoBehaviour
     public int y;
     public int numberOfSteps;
 
+    public Vector3 oldPos;
+    public Vector3 currPos; 
     public Tilemap tilemap;
     public Tilemap overlayMap;
     public TileBase overlayTile;
+
     private Rigidbody2D rigidbody;
+    private Ghosting ghost; 
     public GameObject explosionPrefab;
     public BombSpawner bombspawner;
     public TileRemover tileRemover;
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(x, y, 0);
         Overlay(new Vector3Int(x, y, 0));
         rigidbody = GetComponent<Rigidbody2D>();
+        ghost = GetComponent<Ghosting>(); 
     }
 
     // Update is called once per frame
@@ -46,6 +51,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            oldPos = transform.position; 
+
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 tilePos = tilemap.WorldToCell(mousePos);
             Vector3Int intPos = new Vector3Int((int)tilePos.x, (int)tilePos.y, 0);
@@ -58,7 +65,9 @@ public class PlayerController : MonoBehaviour
                     x = intPos.x;
                     y = intPos.y;
                     transform.position = tilemap.CellToWorld(new Vector3Int(x, y, 0));
+                    currPos = transform.position; 
                     Overlay(intPos);
+                    ghost.enabled = true; 
                 }
             }
         }
