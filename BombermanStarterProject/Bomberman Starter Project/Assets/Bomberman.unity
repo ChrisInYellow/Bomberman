@@ -209,7 +209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -652.5, y: 37.5}
+  m_AnchoredPosition: {x: -641.7, y: 37.5}
   m_SizeDelta: {x: 241.6, y: 30.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147874149
@@ -538,6 +538,7 @@ MonoBehaviour:
   tilemap: {fileID: 1233221667}
   overlayMap: {fileID: 1186751812}
   overlayTile: {fileID: 11400000, guid: f9cce05d896a20349a17076dcfd63c75, type: 2}
+  ghostImage: {fileID: 1594356889854534, guid: f708f4855a297ad499850db55e41ce17, type: 2}
   explosionPrefab: {fileID: 1256738071538998, guid: b699c7ee58d006f48a53ae3d618456c4,
     type: 2}
   bombspawner: {fileID: 1040462024}
@@ -6879,6 +6880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 835083134}
   - component: {fileID: 835083135}
+  - component: {fileID: 835083136}
   m_Layer: 8
   m_Name: Light_final
   m_TagString: Untagged
@@ -6934,7 +6936,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ba33b3505a217c9408fddec4e0600b6a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.272}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6943,6 +6945,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &835083136
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 835083133}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1c843a59946ae9499e2a096421fbcc4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &904741967
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public Tilemap tilemap;
     public Tilemap overlayMap;
     public TileBase overlayTile;
+    public GameObject ghostImage; 
 
     private Rigidbody2D rigidbody;
     private Ghosting ghost; 
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour
                     currPos = transform.position; 
                     Overlay(intPos);
                     ghost.enabled = true; 
+                    //Instantiate(ghostImage, transform.position, transform.rotation); 
                 }
             }
         }
